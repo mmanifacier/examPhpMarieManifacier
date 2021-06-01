@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
-
+    <!-- LOGIN FORM: Start -->
     <div id="login">
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
@@ -36,8 +36,9 @@
             </div>
         </div>
     </div>
+    <!-- LOGIN FORM: End -->
 
-
+    <!-- ERROR GESTION: Start -->
     <?php
         if(isset($_GET['error'])){
     ?>
@@ -66,6 +67,7 @@
     <?php
         }
     ?>
+    <!-- ERROR GESTION: End -->
 </body>
 </html>
 

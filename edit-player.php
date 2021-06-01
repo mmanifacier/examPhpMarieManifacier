@@ -9,12 +9,19 @@
 
 <body>
     <?php
+        //Connection checking
         session_start();
         require './function/function.php';
         checkConnexion();
+
+        //Navbar
         include './parts/navbar.php';
+
+        //Retrieval of information sent via the method GET
         $player = getPlayer($_GET['id'])
     ?>
+
+    <!-- EDITING PLAYER FORM: Start -->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -71,7 +78,9 @@
             </div>
         </div>
     </div>
+    <!-- EDITING PLAYER FORM: Start -->
 
+    <!-- ERROR GESTION: Start -->
     <?php
     if(isset($_GET['error'])){
     ?>
@@ -102,7 +111,7 @@
     <?php
         }
     ?>
-
+    <!-- ERROR GESTION: End -->
 </body>
 
 </html>
