@@ -1,24 +1,24 @@
 <div class="container">
     <h2 class="display-5 fw-bold">Nos Joueurs</h1>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">First-Name</th>
-                <th scope="col">Last-Name</th>
-                <th scope="col">Age</th>
-                <th scope="col">Position</th>
-                <th scope="col">Jersey Number</th>
-                <?php
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">First-Name</th>
+                    <th scope="col">Last-Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Jersey Number</th>
+                    <?php
                     if (isset($_SESSION['username'])) {                    
                         ?>
-                        <th scope="col">Delete</th>
-                        <?php
+                    <th scope="col">Delete</th>
+                    <?php
                     }
                 ?>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
+                </tr>
+            </thead>
+            <tbody>
+                <?php
             $players = getAllPlayers();
             
             foreach($players as $player){ 
@@ -30,17 +30,30 @@
                     <td><?php $position = getPosition($player['id_position']);
                             echo($position['name']); ?></td>
                     <td><?php echo($player['jersey_number']); ?></td>
-                    <?php
-                        if (isset($_SESSION['username'])) {                    
-                            ?>
-                            <td><a href="./manager/delete-player-manager.php?id=<?php echo($player['id_player']); ?>" class="btn btn-info">Delete</a></td>
-                            <?php
-                        }
+                    <?php if (isset($_SESSION["username"])) {
                     ?>
+                    <td>
+                        <div class="btn-group float-end">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">Action</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./edit-player.php?id=<?php echo($player['id_player']); ?>">Edit</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item"
+                                        href="./manager/delete-player-manager.php?id=<?php echo($player['id_player']); ?>">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                    <?php
+                    }
+                ?>
                 </tr>
                 <?php
             }
         ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 </div>

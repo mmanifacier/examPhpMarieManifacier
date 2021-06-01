@@ -1,6 +1,5 @@
 <?php
     session_start();
-    $authorizedFiles = ['image/png', 'image/jpeg', 'image/jpg'];
 
     if (empty($_POST['first-name'])) {
         header("Location: ../add-player.php?error=no-first-name");

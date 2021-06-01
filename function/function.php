@@ -20,6 +20,15 @@ function getAllPositions(){
     return $query->fetchAll();
 }
 
+function getPlayer($id){
+    require './parts/bdd-connection.php';
+    $query = $pdo->prepare('SELECT * FROM player WHERE id_player = :id');
+    $query -> execute([
+        'id' => $id
+    ]);
+    return $query->fetch();
+}
+
 function getPosition($id){
     require './parts/bdd-connection.php';
     $query = $pdo->prepare('SELECT * FROM position WHERE id_position = :id');
