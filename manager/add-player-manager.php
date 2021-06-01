@@ -1,14 +1,20 @@
 <?php
     session_start();
+    $firstName = $_POST['first-name'];
+    $lastName = $_POST['last-name'];
+    $age = $_POST['age'];
+    $number = $_POST['number'];
+    $position = $_POST['position'];
 
-    if (empty($_POST['first-name'])) {
+    if (empty($firstName)) {
         header("Location: ../add-player.php?error=no-first-name");
-    } elseif (empty($_POST['last-name'])) {
+    } elseif (empty($lastName)) {
         header("Location: ../add-player.php?error=no-last-name");
-    } elseif (empty($_POST['age'])) {
+    } elseif (empty($age)) {
         header("Location: ../add-player.php?error=no-age");
+    } elseif (empty($number)) {
+        header("Location: ../add-player.php?error=no-number");
     }
-
     try {
         require '../parts/bdd-connection.php';
         $req = $pdo->prepare("INSERT INTO player (first_name, last_name, age, id_position, jersey_number) VALUES (:first_name, :last_name, :age, :position, :jersey)");
@@ -20,11 +26,11 @@
             header("Location: ../add-player.php?error=too-much-players");
         } else {
             $req->execute([
-                'first_name'=> $_POST['first-name'],
-                'last_name'=> $_POST['last-name'],
-                'age'=> $_POST['age'],
-                'position'=> $_POST['position'],
-                'jersey'=> $_POST['number']
+                'first_name'=> $firstName,
+                'last_name'=> $lastName,
+                'age'=> $age,
+                'position'=> $position,
+                'jersey'=> $number
             ]);
             header("Location: ../admin.php");
         }

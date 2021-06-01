@@ -3,15 +3,15 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">First-Name</th>
-                    <th scope="col">Last-Name</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
                     <th scope="col">Age</th>
                     <th scope="col">Position</th>
-                    <th scope="col">Jersey Number</th>
+                    <th scope="col">Maillot</th>
                     <?php
                     if (isset($_SESSION['username'])) {                    
                         ?>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Options</th>
                     <?php
                     }
                 ?>
@@ -35,14 +35,14 @@
                     <td>
                         <div class="btn-group float-end">
                             <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
-                                aria-expanded="false">Action</button>
+                                aria-expanded="false">Actions</button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="./edit-player.php?id=<?php echo($player['id_player']); ?>">Edit</a></li>
+                                <li><a class="dropdown-item" href="./edit-player.php?id=<?php echo($player['id_player']); ?>">Editer</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item"
-                                        href="./manager/delete-player-manager.php?id=<?php echo($player['id_player']); ?>">Delete</a>
+                                        href="./manager/delete-player-manager.php?id=<?php echo($player['id_player']); ?>">Supprimer</a>
                                 </li>
                             </ul>
                         </div>

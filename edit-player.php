@@ -22,18 +22,18 @@
                 <div class="well well-sm">
                     <form class="form-horizontal" method="post" action="./manager/edit-player-manager.php?id=<?php echo($player['id_player']); ?>">
                         <fieldset>
-                            <legend class="text-center header">Edit Joueur</legend>
+                            <legend class="text-center header">Editer un Joueur</legend>
 
                             <div class="form-floating col-md-8 mb-3">
                                 <input type="text" class="form-control" name="first-name" id="floatingFirstName"
                                     placeholder="First Name" value="<?php echo($player['first_name']) ?>">
-                                <label for="floatingFirstName">First Name</label>
+                                <label for="floatingFirstName">Prénom</label>
                             </div>
 
                             <div class="form-floating col-md-8 mb-3">
                                 <input type="text" class="form-control" name="last-name" id="floatingLastName"
                                     placeholder="Last Name" value="<?php echo($player['last_name']) ?>">
-                                <label for="floatingLastName">Last Name</label>
+                                <label for="floatingLastName">Nom</label>
                             </div>
 
                             <div class="form-floating col-md-8 mb-3">
@@ -45,7 +45,7 @@
                             <div class="form-floating col-md-8 mb-3">
                                 <input type="number" class="form-control" name="number" id="floatingNumber"
                                     placeholder="Number" value="<?php echo($player['jersey_number']) ?>">
-                                <label for="floatingNumber">Number</label>
+                                <label for="floatingNumber">Maillot</label>
                             </div>
 
                             <div class="form-floating col-md-8 mb-3">
@@ -63,7 +63,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
                                 </div>
                             </div>
                         </fieldset>

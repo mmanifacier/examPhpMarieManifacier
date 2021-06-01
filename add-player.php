@@ -90,8 +90,8 @@
                 case 'too-much-players':
                     echo('Il y a déja 23 joueurs entrés.');
                     break;
-                case 'jersey-taken':
-                    echo('Il y a déja un joueur avec ce maillot.');
+                case 'no-number':
+                    echo('Veuillez saisir un numéro de maillot.');
                     break;
                 default:
                     echo('Erreur inconnue.');
