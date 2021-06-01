@@ -3,7 +3,6 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">ID</th>
                 <th scope="col">First-Name</th>
                 <th scope="col">Last-Name</th>
                 <th scope="col">Age</th>
@@ -25,7 +24,6 @@
             foreach($players as $player){ 
                 ?>
                 <tr>
-                    <th scope="row"><?php echo($player['id_player']); ?></th>
                     <td><?php echo($player['first_name']); ?></td>
                     <td><?php echo($player['last_name']); ?></td>
                     <td><?php echo($player['age']); ?></td>
