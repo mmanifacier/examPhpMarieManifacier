@@ -12,7 +12,6 @@
         session_start();
         require './function/function.php';
         checkConnexion();
-        include './parts/carousel.php';
         include './parts/navbar.php';
     ?>
     <div class="container">
