@@ -12,18 +12,22 @@
 
     try {
         require '../parts/bdd-connection.php';
-        $req = $pdo->prepare("INSERT INTO player (first_name, last_name, age) VALUES (:first_name, :last_name, :age)");
+        $req = $pdo->prepare("INSERT INTO player (first_name, last_name, age, id_position, jersey_number) VALUES (:first_name, :last_name, :age, :position, :jersey)");
 
-        $verif = $pdo->prepare("SELECT COUNT(*) FROM player");
-        if ($verif < 23) {
+        $verifNumPlayers = $pdo->prepare("SELECT COUNT(*) FROM player");
+        $verifNumPlayers->execute();
+
+        if ($verifNumPlayers >= 23) {
+            header("Location: ../add-player.php?error=too-much-players");
+        } else {
             $req->execute([
                 'first_name'=> $_POST['first-name'],
                 'last_name'=> $_POST['last-name'],
-                'age'=> $_POST['age']
+                'age'=> $_POST['age'],
+                'position'=> $_POST['position'],
+                'jersey'=> $_POST['number']
             ]);
             header("Location: ../admin.php");
-        } else {
-            header("Location: ../add-player.php?error=too-much-players");
         }
         
     } catch (\PDOException $e) {
